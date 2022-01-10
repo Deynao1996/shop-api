@@ -4,7 +4,10 @@
   "description": "test",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "client": "cd.. && cd client && npm start",
+    "backend": "nodemon index.js",
+    "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -18,10 +21,16 @@
   },
   "homepage": "https://github.com/Deynao1996/server#readme",
   "dependencies": {
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "i": "^0.3.7",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.4",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "npm": "^8.3.0",
+    "stripe": "^8.195.0"
   }
 }
