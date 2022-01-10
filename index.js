@@ -8,6 +8,7 @@ const ordersRouter = require("./routes/order");
 const productRouter = require("./routes/product");
 const stripeRouter = require("./routes/stripe");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 app.use(express.json());
