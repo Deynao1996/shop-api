@@ -26,10 +26,15 @@ app.use('/api/payment', stripeRouter);
 
 app.use(express.static(path.join(__dirname, '/client/build')));
 
+app.get('/123', (req, res) => {
+  console.log(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
-console.log(path.join(__dirname, 'client', 'build', 'index.html'));
+
 // const root = require('path').join(__dirname, 'client', 'build');
 // console.log(root);
 // app.use(express.static(root));
