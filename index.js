@@ -24,17 +24,24 @@ app.use('/api/user', userRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/payment', stripeRouter);
 
-// app.use(express.static(path.join(__dirname, "/client")));
-//
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/client/build/index.html'));
-// });
+app.use(express.static(path.join(__dirname, '/client/build')));
 
-const root = require('path').join(__dirname, 'client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+console.log(path.join(__dirname, 'client', 'build', 'index.html'));
+// const root = require('path').join(__dirname, 'client', 'build');
+// console.log(root);
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//     res.sendFile('index.html', { root });
+// })
+
+// app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+//
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+// });
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
